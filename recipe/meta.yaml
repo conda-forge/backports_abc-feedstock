@@ -1,13 +1,13 @@
-{% set version="0.4" %}
+{% set version="0.5" %}
 
 package:
   name: backports_abc
   version: {{ version }}
 
 source:
-  fn: backports_abc-0.4.tar.gz
+  fn: backports_abc-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/b/backports_abc/backports_abc-{{ version }}.tar.gz
-  md5: 0b65a216ce9dc9c1a7e20a729dd7c05b
+  md5: 7d1936ec183a3586290adf60f6f96764
 
 build:
   number: 0
