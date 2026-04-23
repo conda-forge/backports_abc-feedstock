@@ -6,29 +6,32 @@ package:
 
 source:
   fn: backports_abc-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/b/backports_abc/backports_abc-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/b/backports_abc/backports_abc-{{ version }}.tar.gz
   sha256: 033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - backports_abc
 
 about:
   home: https://github.com/cython/backports_abc
   license: PSF 2
+  license_file: LICENSE
   summary: A backport of recent additions to the `collections.abc` module.
 
 extra:
